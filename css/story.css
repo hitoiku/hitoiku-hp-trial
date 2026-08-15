@@ -1,0 +1,197 @@
+/* ============================================================
+   Intro splash -- logo, then tagline, then reveal the story
+   ============================================================ */
+.intro-splash{
+  position: fixed; inset:0; z-index: 500;
+  background: #FFFFFF;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+}
+.intro-splash.hidden{ display:none; }
+.intro-stage{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  opacity:0; transition: opacity 1.4s ease;
+  pointer-events:none;
+}
+.intro-stage.show{ opacity:1; transition: opacity 1.1s ease; }
+.intro-logo-img{ width:min(56vw,380px); height:auto; }
+.intro-logo-fallback{ display:flex; align-items:center; gap:16px; color: var(--ink); font-family:var(--ff-en); font-weight:800; font-size:52px; }
+.intro-logo-fallback .mark{ width:64px; height:64px; border-radius:18px; background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%); position:relative; }
+.intro-logo-fallback .mark::after{ content:""; position:absolute; left:17px; top:17px; width:30px; height:30px; border-radius:8px 8px 8px 0; background:#fff; opacity:.92; transform: rotate(45deg) scale(.7); }
+.intro-tagline{
+  color: var(--ink); font-family: var(--ff-head); font-weight:700; text-align:center;
+  font-size: clamp(30px,6.4vw,62px); line-height:1.7; padding: 0 24px; margin:0;
+}
+.intro-tagline-stage.show{ transition: opacity .05s linear; } /* let per-character spans drive the reveal, not the block fade */
+.intro-tagline .ch{
+  display:inline-block;
+  opacity:0; transform: translateY(16px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.intro-tagline-stage.show .ch{ opacity:1; transform:none; }
+.intro-skip{
+  position:absolute; bottom:34px; right:34px; z-index:2;
+  font-size:12.5px; color: var(--ink-faint); border:1px solid var(--line);
+  padding:8px 18px; border-radius:999px; pointer-events:auto; background:#fff;
+}
+.intro-skip:hover{ color: var(--ink); border-color: var(--ink-faint); }
+
+
+.story-scroll{
+  position: relative;
+  height: 600vh; /* 6 stages x 100vh */
+  background: #EAF6F2;
+}
+@media (max-width: 860px){
+  .story-scroll{ height: 660vh; }
+}
+
+.story-visual{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+
+.story-bg{
+  position:absolute; inset:0;
+  background: radial-gradient(1000px 760px at 50% 38%, #EAF6F2 0%, #DCEFE9 70%);
+  transition: background 1.6s ease;
+}
+.story-scroll[data-active="0"] .story-bg{ background: radial-gradient(1000px 760px at 50% 42%, #EDF6F5 0%, #D9EDE9 75%); }
+.story-scroll[data-active="1"] .story-bg{ background: radial-gradient(1000px 760px at 50% 42%, #EEF8EF 0%, #D3EEDE 75%); }
+.story-scroll[data-active="2"] .story-bg{ background: radial-gradient(1000px 780px at 50% 38%, #FFF7E9 0%, #FCE7C3 78%); }
+.story-scroll[data-active="3"] .story-bg{ background: radial-gradient(1000px 780px at 50% 38%, #FFF2E3 0%, #FFDBB0 78%); }
+.story-scroll[data-active="4"] .story-bg{ background: radial-gradient(1050px 820px at 50% 35%, #FFEFD6 0%, #FFC98A 72%); }
+.story-scroll[data-active="5"] .story-bg{ background: radial-gradient(1100px 860px at 50% 32%, #FFEAC0 0%, #BDEEDA 68%); }
+
+.story-svg{ position:relative; z-index:1; width:min(92vw, 900px); height:auto; max-height:82vh; }
+.story-svg .fig,
+.story-svg .ln,
+.story-svg .dot-wrap{
+  opacity:0;
+  transition: opacity .6s ease, transform .5s ease, filter .3s ease;
+}
+.story-svg .fig{ transition-property: opacity, transform, filter, color; transition-duration:.6s,.5s,.3s,1s; }
+.story-svg .fig-glow{ filter: drop-shadow(0 0 5px currentColor) drop-shadow(0 0 16px currentColor) drop-shadow(0 6px 10px rgba(11,32,39,.12)); }
+.story-svg .st{ pointer-events:none; }
+.story-svg .st.on .fig,
+.story-svg .st.on .ln,
+.story-svg .st.on .dot-wrap{
+  opacity: var(--o, 1);
+}
+
+/* "People gathering" entrance -- slides + scales in from an outer position
+   to its resting spot. transform-box/origin are pinned in story_svg.py's
+   person_gather() to (0,0) of the view-box so this never fights with a
+   presentational SVG transform attribute. */
+.story-svg .gather{
+  transform: translate(var(--sx), var(--sy)) scale(var(--s0));
+  transition: transform 1s cubic-bezier(.22,.75,.28,1), opacity .7s ease;
+}
+.story-svg .st.on .gather{
+  transform: translate(var(--ex), var(--ey)) scale(var(--s1));
+}
+.story-svg .line-draw{ stroke-dasharray: 400; stroke-dashoffset: 400; transition: stroke-dashoffset 1s ease, opacity .6s ease; }
+.story-svg .st.on .line-draw{ stroke-dashoffset: 0; }
+.story-svg .pulse{ animation: story-pulse 2.4s ease-in-out infinite; }
+@keyframes story-pulse{ 0%,100%{ opacity:.4; r:5; } 50%{ opacity:1; r:8; } }
+.story-svg .spark{ animation: story-spark 2.8s ease-in-out infinite; }
+@keyframes story-spark{ 0%,100%{ opacity:.3; } 50%{ opacity:1; } }
+
+/* Hover a tag in the text -> highlight the illustration piece it describes.
+   (transform/filter for the hover-highlight is applied to a non-positioned
+   child, never to the element carrying the SVG translate/scale attribute --
+   combining CSS filter+transform on the same transformed element mis-renders
+   in Chromium.) */
+.story-svg .st.on .ln[data-link].linked-hot{
+  filter: drop-shadow(0 0 6px currentColor) drop-shadow(0 0 12px currentColor);
+}
+.story-svg .st.on .dot-wrap[data-link].linked-hot{
+  transform: scale(1.45);
+  transform-box: fill-box; transform-origin: center;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+.story-svg .st.on .fig[data-link].linked-hot > g{
+  transform: scale(1.2);
+  transform-box: fill-box; transform-origin: center;
+  filter: drop-shadow(0 0 8px currentColor) drop-shadow(0 0 18px currentColor);
+  transition: transform .3s ease, filter .3s ease;
+}
+.story-tags span{ cursor:default; transition: background .25s ease, border-color .25s ease, transform .2s ease; }
+.story-tags span.linkable{ cursor:pointer; }
+.story-tags span.tag-hot{
+  background: rgba(255,107,69,.12); border-color: var(--accent); color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.story-depth{
+  position:absolute; left:28px; top:50%; transform:translateY(-50%);
+  writing-mode: vertical-rl; letter-spacing:.2em; font-family: var(--ff-en);
+  font-size:12px; color: rgba(11,32,39,.35); z-index:2;
+}
+.story-depth b{ color: var(--accent); }
+.story-progress{
+  position:absolute; right:28px; top:50%; transform:translateY(-50%);
+  display:flex; flex-direction:column; gap:10px; z-index:2;
+}
+.story-progress span{
+  width:8px; height:8px; border-radius:50%; background: rgba(11,32,39,.16);
+  transition: background .3s ease, transform .3s ease;
+}
+.story-progress span.on{ background: var(--accent); transform: scale(1.3); }
+@media (max-width: 720px){ .story-depth, .story-progress{ display:none; } }
+
+.story-panels{
+  position:absolute; inset:0 0 0 0; top:0; left:0; width:100%; z-index:3; pointer-events:none;
+}
+.story-panel{
+  height: 100vh;
+  display:flex; align-items:center;
+  padding: 0 8vw;
+  overflow-x: hidden; /* safety clip if a nowrap title is wider than the viewport */
+}
+.story-panel:nth-child(even){ justify-content:flex-end; text-align:right; }
+.story-panel:nth-child(odd){ justify-content:flex-start; text-align:left; }
+.story-panel-inner{
+  max-width: 420px; opacity:.25; transform: translateY(14px);
+  transition: opacity .7s ease, transform .7s ease;
+  pointer-events:auto;
+}
+.story-panel.active .story-panel-inner{ opacity:1; transform:none; }
+.story-eyebrow{
+  font-family: var(--ff-en); font-size:12px; letter-spacing:.2em; font-weight:700;
+  color: var(--accent); text-transform:uppercase; margin-bottom:14px;
+}
+.story-num{ font-family:var(--ff-en); font-size:13px; color: var(--ink-faint); margin-bottom:6px; letter-spacing:.1em; }
+.story-panel h2{
+  color: var(--ink); font-size: clamp(19px,3.6vw,36px); margin-bottom:14px; line-height:1.5;
+  white-space: nowrap;
+}
+.story-panel p.lead{ color: var(--ink-soft); font-size:15px; margin-bottom:20px; }
+.story-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+.story-panel:nth-child(even) .story-tags{ justify-content:flex-end; }
+.story-tags span{
+  font-size:12.5px; font-weight:600; color: var(--ink);
+  border:1px solid rgba(11,32,39,.14); padding:6px 13px; border-radius:999px;
+  background: rgba(255,255,255,.72); box-shadow: 0 2px 8px rgba(11,32,39,.05);
+}
+.story-panel.final .story-panel-inner{ max-width: 520px; }
+.story-panel.final h2{ font-size: clamp(26px,3.6vw,42px); }
+.story-panel.final .btn{ margin-top:10px; }
+
+.story-skip{
+  position: sticky; top: 90vh; z-index:4; display:flex; justify-content:center; pointer-events:none;
+}
+.story-skip a{
+  pointer-events:auto; font-size:12.5px; color: var(--ink-soft); border:1px solid rgba(11,32,39,.14);
+  padding:8px 18px; border-radius:999px; background: rgba(255,255,255,.7); backdrop-filter: blur(4px);
+}
+.story-skip a:hover{ color: var(--ink); border-color: rgba(11,32,39,.3); }
+
+@media (max-width: 720px){
+  .story-panel{ padding: 0 7vw; justify-content:flex-start !important; text-align:left !important; }
+  .story-panel:nth-child(even) .story-tags{ justify-content:flex-start; }
+  .story-panel-inner{ max-width: 320px; }
+}
