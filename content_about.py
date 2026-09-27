@@ -5,8 +5,7 @@ CONTENT = f"""
   <div class="container">
     <h1>私たちについて</h1>
     <div class="about-subnav">
-      <a href="#mission" class="about-subnav-item active" data-panel="mission">ミッション<span class="subnav-arrow">{icon('arrow-down')}</span></a>
-      <a href="#vision" class="about-subnav-item" data-panel="vision">ビジョン<span class="subnav-arrow">{icon('arrow-right')}</span></a>
+      <a href="#mission" class="about-subnav-item active" data-panel="mission">経営理念<span class="subnav-arrow">{icon('arrow-down')}</span></a>
       <a href="#company" class="about-subnav-item" data-panel="company">会社概要<span class="subnav-arrow">{icon('arrow-right')}</span></a>
     </div>
   </div>
@@ -15,11 +14,12 @@ CONTENT = f"""
 <section id="mission">
   <div class="container">
     <div class="mv-box reveal" style="max-width:960px;margin:0 auto;">
-      <div class="mv-item" data-panel="mission">
+      <div class="mv-item">
         <h3>UPDATE HUMAN</h3>
         <p>人は本来、成長し、変化し続ける存在。私たちは、人が本来持っている可能性が自然に更新され続ける環境と仕組みをつくります。</p>
       </div>
-      <div class="mv-item" id="vision" data-panel="vision" hidden>
+      <div class="mv-divider"></div>
+      <div class="mv-item" id="vision">
         <h3>人の可能性が、動き出す瞬間を。</h3>
         <p>気づき、納得し、やってみようと思えた瞬間。その積み重ねの先に、可能性は自然と動き出すと信じています。</p>
       </div>
@@ -39,13 +39,9 @@ CONTENT = f"""
       </div>
       <div>
         <h3 style="font-size:24px;">満仲 佑哉 <span style="font-size:14px;color:var(--ink-faint);font-weight:500;">Yuya Mitsunaka</span></h3>
-        <p style="font-weight:700;color:var(--ink);">Hitoiku CEO ／ 株式会社ナーシング 取締役 CHRO</p>
+        <p style="font-weight:700;color:var(--ink);">株式会社Hitoiku 代表取締役CEO ／ 株式会社ナーシング 取締役 CHRO</p>
         <p>「可能性に限界をつくらない。」現場実務18年とCHROとしての経営視点を掛け合わせ、人と組織の可能性が動き出す仕組みづくりに取り組んでいます。</p>
-        <button type="button" class="more message-toggle" style="margin-top:8px;" aria-expanded="false">
-          <span class="message-toggle-label">代表挨拶を詳しく読む</span>
-          <span class="message-toggle-icon">{icon('arrow-right')}</span>
-        </button>
-        <div class="message-full" hidden>
+        <div class="message-full">
           <p>Hitoikuのウェブサイトをご覧いただき、誠にありがとうございます。CEOの満仲佑哉でございます。私たちヒトイクは2024年の設立以来、「UPDATE HUMAN」という理念のもと、企業の人事支援に携わってまいりました。</p>
           <div class="quote-block">
             <p>可能性に限界をつくらない。</p>
@@ -60,7 +56,7 @@ CONTENT = f"""
             <p>人の可能性が、動き出す社会へ。</p>
           </div>
           <p>私たちは、自然と成長できる構造を体験・制度・人事DXの力でつくり、学びと成長が日常の中に組み込まれていく状態を目指します。それが、<strong>UPDATE HUMAN</strong>。人の可能性を、思想で終わらせず、学びや仕組みで更新することです。</p>
-          <p style="margin-top:30px;">2024年　ヒトイク　満仲 佑哉</p>
+          <p style="margin-top:30px;text-align:right;">2024年　株式会社Hitoiku 代表取締役CEO　満仲佑哉</p>
         </div>
       </div>
     </div>
@@ -90,13 +86,23 @@ CONTENT = f"""
       <table class="price-table">
         <tbody>
           <tr><th style="width:180px;">会社名</th><td>株式会社Hitoiku</td></tr>
-          <tr><th>設立</th><td>2024年1月10日</td></tr>
-          <tr><th>資本金</th><td>3,000,000</td></tr>
+          <tr><th>設立</th><td>2024年1月10日（ヒトの日）</td></tr>
+          <tr><th>資本金</th><td>3,000,000円</td></tr>
           <tr><th>CEO</th><td>満仲 佑哉</td></tr>
           <tr><th>メールアドレス</th><td><a href="mailto:hitoiku0110@gmail.com">hitoiku0110@gmail.com</a></td></tr>
           <tr><th>所在地</th><td>〒450-0002<br>愛知県名古屋市中村区名駅4丁目24番5号<br>第2森ビル401</td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</section>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>私たちについて</h1>
+    <div class="about-subnav">
+      <a href="#mission" class="about-subnav-item active" data-panel="mission">経営理念<span class="subnav-arrow">{icon('arrow-down')}</span></a>
+      <a href="#company" class="about-subnav-item" data-panel="company">会社概要<span class="subnav-arrow">{icon('arrow-right')}</span></a>
     </div>
   </div>
 </section>

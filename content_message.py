@@ -19,7 +19,7 @@ CONTENT = f"""
       </div>
       <div>
         <h2 style="font-size:26px;">満仲 佑哉 <span style="font-size:14px;color:var(--ink-faint);font-weight:500;">Yuya Mitsunaka</span></h2>
-        <p style="font-weight:700;color:var(--ink);">Hitoiku CEO ／ 株式会社ナーシング 取締役 CHRO</p>
+        <p style="font-weight:700;color:var(--ink);">株式会社Hitoiku 代表取締役CEO ／ 株式会社ナーシング 取締役 CHRO</p>
         <p>Hitoikuのウェブサイトをご覧いただき、誠にありがとうございます。CEOの満仲佑哉でございます。私たちヒトイクは2024年の設立以来、「UPDATE HUMAN」という理念のもと、企業の人事支援に携わってまいりました。</p>
 
         <div class="quote-block">
@@ -37,7 +37,7 @@ CONTENT = f"""
           <p>人の可能性が、動き出す社会へ。</p>
         </div>
         <p>私たちは、自然と成長できる構造を体験・制度・人事DXの力でつくり、学びと成長が日常の中に組み込まれていく状態を目指します。それが、<strong>UPDATE HUMAN</strong>。人の可能性を、思想で終わらせず、学びや仕組みで更新することです。</p>
-        <p style="margin-top:30px;">2024年　ヒトイク　満仲 佑哉</p>
+        <p style="margin-top:30px;text-align:right;">2024年　株式会社Hitoiku 代表取締役CEO　満仲佑哉</p>
       </div>
     </div>
   </div>

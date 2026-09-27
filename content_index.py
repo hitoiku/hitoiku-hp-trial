@@ -5,10 +5,7 @@ STATIC_HERO = f"""
 {INTRO_HTML}
 <section class="hero-v2">
   <div class="hero-v2-media-full" id="heroMediaFrame">
-    <div class="hero-v2-slide hero-v2-slide-logo is-active">
-      <img src="images/logo.png" alt="ヒトイク" class="hero-v2-logo-img" loading="eager">
-    </div>
-    <div class="hero-v2-slide hero-v2-slide-photo">
+    <div class="hero-v2-slide hero-v2-slide-photo is-active">
       <img src="images/hero.png" alt="人の可能性が、動き出す瞬間を。" loading="eager" width="1672" height="941">
     </div>
     <div class="hero-v2-slide hero-v2-slide-nursing">
@@ -17,7 +14,7 @@ STATIC_HERO = f"""
   </div>
   <div class="container hero-v2-content">
     <div class="hero-v2-inner">
-      <h1 class="hero-v2-title">人の可能性が、<br>動き出す瞬間を。</h1>
+      <h1 class="hero-v2-title"><span class="nowrap">人の可能性が、</span><br><span class="nowrap">動き出す瞬間を。</span></h1>
     </div>
   </div>
   <a href="#after-story" class="hero-v2-scroll" aria-label="スクロールして次のセクションへ">
@@ -63,7 +60,7 @@ CONTENT = f"""
     <span class="shape shape-b"></span>
   </div>
   <div class="container about-teaser-inner reveal">
-    <p class="about-teaser-statement">私たちは、まだ見えていない可能性を<br class="teaser-break-sm">信じ、<br>人が変わるきっかけをつくる会社です。</p>
+    <p class="about-teaser-statement">私たちは、人が変わるきっかけをつくり、<br>誰もが可能性をひらける社会をつくります。</p>
     <a href="about.html" class="about-teaser-link">
       <span class="about-teaser-circle">{icon('arrow-right')}</span>
       <span>Hitoikuをもっと知る</span>
@@ -78,21 +75,21 @@ CONTENT = f"""
         <span class="eyebrow eyebrow-lg slide-in-left">Our Services</span>
       </div>
       <div class="service-list">
-        <a href="recruiting.html" class="service-list-item slide-in-left">
+        <a href="recruiting.html#recruiting" class="service-list-item slide-in-left">
           <div class="service-list-icon"><img src="images/service-icon-recruiting.png" alt="" loading="lazy"></div>
           <div class="service-list-body">
             <h3>採用コンサルティング</h3>
           </div>
           <span class="service-list-arrow">{icon('arrow-right')}</span>
         </a>
-        <a href="training.html" class="service-list-item slide-in-left">
+        <a href="recruiting.html#training" class="service-list-item slide-in-left">
           <div class="service-list-icon"><img src="images/service-icon-training.png" alt="" loading="lazy"></div>
           <div class="service-list-body">
             <h3>研修・人材育成</h3>
           </div>
           <span class="service-list-arrow">{icon('arrow-right')}</span>
         </a>
-        <a href="hr-system.html" class="service-list-item slide-in-left">
+        <a href="recruiting.html#hr-system" class="service-list-item slide-in-left">
           <div class="service-list-icon"><img src="images/service-icon-hrsystem.png" alt="" loading="lazy"></div>
           <div class="service-list-body">
             <h3>人事制度・組織開発</h3>
@@ -106,15 +103,15 @@ CONTENT = f"""
 
 <section>
   <div class="container">
-    <div class="company-deck reveal">
+    <div class="company-deck reveal" style="transition: opacity 3s ease, transform 3s ease;">
       <div class="company-deck-text">
         <h2><span class="nowrap">Hitoikuを、</span><br><span class="nowrap">もっと知る。</span></h2>
       </div>
-      <a href="contact.html" class="company-deck-media">
+      <a href="recruiting.html" class="company-deck-media">
         <img src="images/company-deck.jpg" alt="Hitoiku 会社紹介" loading="lazy">
         <span class="company-deck-link">
           <span class="company-deck-play">{icon('play')}</span>
-          <span>会社資料をみる</span>
+          <span>事業内容</span>
           {icon('arrow-right')}
         </span>
       </a>

@@ -5,8 +5,6 @@ FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeZlL0OIho6RS2qT0XHRUkNSlb5
 CONTENT = f"""
 <section class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">ホーム</a> / お問い合わせ</div>
-    <span class="eyebrow">Contact</span>
     <h1>お問い合わせ</h1>
     <p class="lead">採用・研修・人事制度など、どんな段階のお悩みでもお気軽にご相談ください。初回のご相談は無料です。</p>
   </div>
@@ -56,17 +54,17 @@ CONTENT = f"""
       <p>詳しい支援内容は、それぞれの事業内容ページでご紹介しています。</p>
     </div>
     <div class="service-link-grid reveal">
-      <a href="recruiting.html" class="service-link-card">
+      <a href="recruiting.html#recruiting" class="service-link-card">
         <span class="tag">01 / RECRUITING</span>
         <h4>採用コンサルティング</h4>
         <span class="go">詳しく見る {icon('arrow-right')}</span>
       </a>
-      <a href="training.html" class="service-link-card">
+      <a href="recruiting.html#training" class="service-link-card">
         <span class="tag">02 / TRAINING</span>
         <h4>研修・人材育成</h4>
         <span class="go">詳しく見る {icon('arrow-right')}</span>
       </a>
-      <a href="hr-system.html" class="service-link-card">
+      <a href="recruiting.html#hr-system" class="service-link-card">
         <span class="tag">03 / HR SYSTEM</span>
         <h4>人事制度・組織開発</h4>
         <span class="go">詳しく見る {icon('arrow-right')}</span>

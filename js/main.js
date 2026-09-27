@@ -134,40 +134,53 @@ document.addEventListener('DOMContentLoaded', function () {
     if (href === path) a.classList.add('active');
   });
 
-  // About page: Mission / Vision / Company Overview subnav tabs -- only
-  // the selected tab's content is visible at a time (the other panels,
-  // and the Company Overview section entirely, are hidden) so switching
-  // tabs never leaves unrelated content peeking into view.
+  // About page: Management Philosophy (Mission + Vision together) / Company
+  // Overview subnav tabs -- only the selected tab's section is visible at a
+  // time, so switching tabs never leaves unrelated content peeking into view.
   var aboutSubnavTabs = document.querySelectorAll('.about-subnav-item[data-panel]');
   if (aboutSubnavTabs.length) {
-    var aboutPanels = document.querySelectorAll('.mv-item[data-panel]');
     var missionSection = document.getElementById('mission');
     var companySection = document.getElementById('company');
     var arrowDown = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>';
     var arrowRight = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+    var activateAboutTab = function (target, scroll) {
+      var tab = Array.prototype.filter.call(aboutSubnavTabs, function (t) { return t.dataset.panel === target; })[0];
+      if (!tab) return;
+      if (missionSection) missionSection.hidden = target === 'company';
+      if (companySection) companySection.hidden = target !== 'company';
+      aboutSubnavTabs.forEach(function (t) {
+        var isActive = t === tab;
+        t.classList.toggle('active', isActive);
+        var arrow = t.querySelector('.subnav-arrow');
+        if (arrow) arrow.innerHTML = isActive ? arrowDown : arrowRight;
+      });
+      var section = target === 'company' ? companySection : missionSection;
+      if (section) {
+        if (scroll) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        section.classList.remove('about-panel-fade');
+        void section.offsetWidth;
+        section.classList.add('about-panel-fade');
+      }
+    };
     aboutSubnavTabs.forEach(function (tab) {
       tab.addEventListener('click', function (e) {
         e.preventDefault();
-        var target = tab.dataset.panel;
-        aboutPanels.forEach(function (panel) { panel.hidden = panel.dataset.panel !== target; });
-        if (missionSection) missionSection.hidden = target === 'company';
-        if (companySection) companySection.hidden = target !== 'company';
-        aboutSubnavTabs.forEach(function (t) {
-          var isActive = t === tab;
-          t.classList.toggle('active', isActive);
-          var arrow = t.querySelector('.subnav-arrow');
-          if (arrow) arrow.innerHTML = isActive ? arrowDown : arrowRight;
-        });
-        var section = target === 'company' ? companySection : missionSection;
-        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        var shown = target === 'company' ? companySection : document.querySelector('.mv-item[data-panel="' + target + '"]');
-        if (shown) {
-          shown.classList.remove('about-panel-fade');
-          void shown.offsetWidth;
-          shown.classList.add('about-panel-fade');
-        }
+        activateAboutTab(tab.dataset.panel, true);
       });
     });
+    // Deep-link support: activate the right tab when arriving via a hash
+    // link (e.g. the header dropdown's "about.html#company"), both on
+    // initial load and on same-page hash navigation.
+    var applyHashTab = function () {
+      var hash = window.location.hash.replace('#', '');
+      if (hash === 'company' || hash === 'vision') {
+        activateAboutTab('company', false);
+      } else if (hash === 'mission') {
+        activateAboutTab('mission', false);
+      }
+    };
+    applyHashTab();
+    window.addEventListener('hashchange', applyHashTab);
   }
 
   // About page: "詳しく読む" / "すべて見る" buttons expand extra content

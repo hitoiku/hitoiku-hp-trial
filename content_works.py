@@ -7,7 +7,7 @@ def case(tag, title, body, result, org, img=None, alt=""):
       {photo}
       <div class="case-body" style="padding:32px;">
         <span class="badge">{tag}</span>
-        <h3 style="font-size:19px;">{title}</h3>
+        <h3 style="font-size:15px;">{title}</h3>
         <p style="margin-top:14px;">{body}</p>
         <div class="result-line"><span class="result-label">成果</span>{result}</div>
         <div class="org">{org}</div>
@@ -19,13 +19,12 @@ CONTENT = f"""
 <section class="page-hero">
   <div class="container">
     <h1>支援実績</h1>
-    <p class="lead">これまでの支援の一部をご紹介します。数値実績は今後の蓄積とともに順次公開してまいります。</p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <div class="case-grid case-grid-feature">
+    <div class="case-grid case-grid-2x2">
       {case(
         "医療・介護法人",
         "見えない課題を教えてくれる唯一のフィードバック",
@@ -63,17 +62,15 @@ CONTENT = f"""
   </div>
 </section>
 
-<section class="pain-band">
+<section>
   <div class="container">
-    <div class="cta-band reveal" style="background:linear-gradient(120deg, var(--brand) 0%, #0A5F55 100%);">
-      <div>
-        <h2>貴社の課題を、まずはお聞かせください。</h2>
-        <p>業種・規模を問わず、無料相談を承っております。</p>
+    <a href="contact.html" class="contact-band reveal">
+      <div class="contact-band-main">
+        <span class="contact-band-title">Contact</span>
       </div>
-      <div class="actions">
-        <a href="contact.html" class="btn btn-ghost-light">Contact {icon('arrow-right')}</a>
-      </div>
-    </div>
+      <p class="contact-band-desc">これからの組織の話を、はじめませんか。</p>
+      <span class="contact-band-circle">{icon('arrow-right')}</span>
+    </a>
   </div>
 </section>
 """
