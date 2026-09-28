@@ -16,25 +16,25 @@ CONTENT = f"""
 
 <section>
   <div class="container">
-    <p class="about-teaser-statement reveal" style="max-width:820px;margin-bottom:16px;">Hitoikuは一緒に考え、一緒に動き、変化をつくる。</p>
-    <p class="reveal" style="max-width:760px;font-size:16px;color:var(--ink);line-height:2;">Hitoikuは、採用・育成・人事制度・組織開発を通じて、人と組織の可能性を動かす支援をしています。現場に寄り添い、実行まで伴走し、超参加型の関わりによって、一人ひとりの行動変化と組織の成長につなげていきます。</p>
+    <p class="about-teaser-statement reveal" style="max-width:900px;margin-bottom:16px;font-size:clamp(20px, 2.6vw, 30px);">Hitoikuは一緒に考え、一緒に動き、変化をつくる。</p>
+    <p class="reveal" style="max-width:760px;font-size:16px;color:var(--ink);line-height:2;">Hitoikuは、採用・育成・人事制度・組織開発を通じて、人と組織の可能性を動かす支援をしています。<br>現場に寄り添い、実行まで伴走し、超参加型の関わりによって、一人ひとりの行動変化と組織の成長につなげていきます。</p>
   </div>
 </section>
 
 <section id="recruiting" style="padding-bottom:0;">
   <div class="container">
     <div class="section-head reveal" style="max-width:800px;margin-bottom:20px;">
-      <h2><span style="color:var(--ink);">01</span><br>採用コンサルティング</h2>
+      <h2><span style="color:var(--ink);">01</span><br>採用伴走支援</h2>
     </div>
   </div>
 </section>
 
 <section class="service-hero-image" style="padding-top:0;">
   <div class="container" style="display:flex; align-items:center; gap:40px; flex-wrap:wrap;">
-    <img src="images/service-recruiting-2.webp" alt="採用コンサルティング" loading="lazy" class="reveal" style="width:420px;height:auto;border-radius:0;box-shadow:none;flex-shrink:0;">
+    <img src="images/service-recruiting-2.webp" alt="採用伴走支援" loading="lazy" class="reveal" style="width:420px;height:auto;border-radius:0;box-shadow:none;flex-shrink:0;">
     <div class="reveal" style="flex:1; min-width:280px;">
       <p style="font-size:22px; font-weight:700; color:var(--ink); margin-bottom:14px;">採用のプロと、採れる仕組みをつくる。</p>
-      <p style="font-size:15px; color:var(--ink); line-height:2;">Hitoikuの採用コンサルティングは、採用計画の見直しから母集団形成、エージェント対応、選考設計、内定承諾までを一気通貫で支援します。採用担当者と伴走しながら、応募が集まらない・選考が進まない・内定辞退が多いといった採用課題を解決する。</p>
+      <p style="font-size:15px; color:var(--ink); line-height:2;">Hitoikuの採用伴走支援は、採用計画の見直しから母集団形成、エージェント対応、選考設計、内定承諾までを一気通貫で支援します。採用担当者と伴走しながら、応募が集まらない・選考が進まない・内定辞退が多いといった採用課題を解決します。</p>
     </div>
   </div>
 </section>
@@ -124,7 +124,22 @@ CONTENT = f"""
     <img src="images/service-training-2.webp" alt="研修・人材育成" loading="lazy" class="reveal" style="width:420px;height:auto;border-radius:0;box-shadow:none;flex-shrink:0;">
     <div class="reveal" style="flex:1; min-width:280px;">
       <p style="font-size:22px; font-weight:700; color:var(--ink); margin-bottom:14px;">学びを、行動に変える。</p>
-      <p style="font-size:15px; color:var(--ink); line-height:2;">Hitoikuの研修・人材育成は、企業や現場の課題に合わせた研修設計から、超参加型ワーク、実践、振り返りまでを一貫して支援します。一方的に「教える」研修ではなく、自ら考え、対話し、行動する機会をつくることで、研修を受けて終わりではなく、現場での行動変容と人材の成長につなげます。</p>
+      <p style="font-size:15px; color:var(--ink); line-height:2;">Hitoikuの研修・人材育成は、企業や現場の課題に合わせた研修設計から、超参加型ワーク、実践、振り返りまでを一貫して支援します。一方的に「教える」のではなく、自ら考え、対話し、行動する研修を実施。受講者の反応や理解度、その場で生まれる対話に合わせて内容を柔軟に組み替えるライブ形式で、一人ひとりの学びを深め、現場での行動変容と人材の成長につなげます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="pain-band" style="background:#fff;">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>研修の特徴</h2>
+    </div>
+    <div class="feature-flow reveal">
+      <div class="feature-flow-item"><div class="num-icon"><span class="num">01</span><span class="ico">{icon('brain')}</span></div><h4>行動心理学に基づく設計</h4><p>科学的根拠に基づいた、行動変容を促すプログラム設計。</p></div>
+      <div class="feature-flow-item col-b"><div class="num-icon"><span class="num">02</span><span class="ico">{icon('growth')}</span></div><h4>アクティブラーニング</h4><p>体験型・参加型の学習で、知識ではなく実践力を高めます。</p></div>
+      <div class="feature-flow-divider"></div>
+      <div class="feature-flow-item"><div class="num-icon"><span class="num">03</span><span class="ico">{icon('puzzle')}</span></div><h4>カスタマイズ対応</h4><p>企業の課題に合わせた完全オーダーメイドのプログラム。</p></div>
+      <div class="feature-flow-item col-b"><div class="num-icon"><span class="num">04</span><span class="ico">{icon('clock')}</span></div><h4>フォローアップ</h4><p>研修後の状態確認まで、継続的にサポートします。</p></div>
     </div>
   </div>
 </section>
@@ -133,6 +148,7 @@ CONTENT = f"""
   <div class="container">
     <div class="section-head reveal">
       <h2>研修メニュー</h2>
+      <p class="price-note">掲載している研修は一例です。課題や目的に合わせてカスタマイズ可能です。</p>
     </div>
     <div class="menu-list">
       <div class="menu-list-item reveal">
@@ -159,21 +175,6 @@ CONTENT = f"""
         <div><h4>ロジカルシンキング研修</h4></div>
         <p>論理的思考力と問題解決力を鍛え、現場での意思決定・提案の質を高めます。</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="pain-band" style="background:#fff; padding-top:0;">
-  <div class="container">
-    <div class="section-head reveal">
-      <h2>研修の特徴</h2>
-    </div>
-    <div class="feature-flow reveal">
-      <div class="feature-flow-item"><div class="num-icon"><span class="num">01</span><span class="ico">{icon('brain')}</span></div><h4>行動心理学に基づく設計</h4><p>科学的根拠に基づいた、行動変容を促すプログラム設計。</p></div>
-      <div class="feature-flow-item col-b"><div class="num-icon"><span class="num">02</span><span class="ico">{icon('growth')}</span></div><h4>アクティブラーニング</h4><p>体験型・参加型の学習で、知識ではなく実践力を高めます。</p></div>
-      <div class="feature-flow-divider"></div>
-      <div class="feature-flow-item"><div class="num-icon"><span class="num">03</span><span class="ico">{icon('puzzle')}</span></div><h4>カスタマイズ対応</h4><p>企業の課題に合わせた完全オーダーメイドのプログラム。</p></div>
-      <div class="feature-flow-item col-b"><div class="num-icon"><span class="num">04</span><span class="ico">{icon('clock')}</span></div><h4>フォローアップ</h4><p>研修後の状態確認まで、継続的にサポートします。</p></div>
     </div>
   </div>
 </section>

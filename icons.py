@@ -30,7 +30,7 @@ def icon(name):
 
 
 SERVICES = [
-    ("recruiting.html#recruiting", "01", "採用コンサルティング", "target"),
+    ("recruiting.html#recruiting", "01", "採用伴走支援", "target"),
     ("recruiting.html#training", "02", "研修・人材育成", "brain"),
     ("recruiting.html#hr-system", "03", "人事制度・組織開発", "layers"),
 ]

@@ -11,6 +11,9 @@ STATIC_HERO = f"""
     <div class="hero-v2-slide hero-v2-slide-nursing">
       <img src="images/case-rooftop.jpg" alt="人の可能性が、動き出す瞬間を。" loading="lazy">
     </div>
+    <div class="hero-v2-slide hero-v2-slide-sprout">
+      <img src="images/hero-sprout.webp" alt="人の可能性が、動き出す瞬間を。" loading="lazy">
+    </div>
   </div>
   <div class="container hero-v2-content">
     <div class="hero-v2-inner">
@@ -78,7 +81,7 @@ CONTENT = f"""
         <a href="recruiting.html#recruiting" class="service-list-item slide-in-left">
           <div class="service-list-icon"><img src="images/service-icon-recruiting.png" alt="" loading="lazy"></div>
           <div class="service-list-body">
-            <h3>採用コンサルティング</h3>
+            <h3>採用伴走支援</h3>
           </div>
           <span class="service-list-arrow">{icon('arrow-right')}</span>
         </a>

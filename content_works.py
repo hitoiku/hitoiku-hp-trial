@@ -1,14 +1,15 @@
 from icons import icon
 
-def case(tag, title, body, result, org, img=None, alt=""):
+def case(tag, title, body, result, org, img=None, alt="", body_font_size=None):
     photo = f'<img class="case-photo" src="{img}" alt="{alt}" loading="lazy">' if img else ""
+    body_style = f"margin-top:14px;font-size:{body_font_size}px;" if body_font_size else "margin-top:14px;"
     return f"""
     <div class="case-card reveal">
       {photo}
       <div class="case-body" style="padding:32px;">
         <span class="badge">{tag}</span>
         <h3 style="font-size:15px;">{title}</h3>
-        <p style="margin-top:14px;">{body}</p>
+        <p style="{body_style}">{body}</p>
         <div class="result-line"><span class="result-label">成果</span>{result}</div>
         <div class="org">{org}</div>
       </div>
@@ -39,7 +40,7 @@ CONTENT = f"""
         "管理職・メンバーそれぞれが、自分自身の考え方や在り方を見つめ直す機会が不足していました。心理学的アプローチを取り入れた研修を実施し、無意識の判断や『自分のクセ』への気づきを促しました。",
         "チームメンバーへの接し方や受け止め方に変化が生まれ、組織内コミュニケーションが改善しました。",
         "カリツー株式会社 様",
-        img="images/case-karitsu.jpg", alt="カリツー株式会社様 研修風景"
+        img="images/case-karitsu.jpg", alt="カリツー株式会社様 研修風景", body_font_size=14
       )}
       {case(
         "福祉・教育法人",
@@ -58,7 +59,6 @@ CONTENT = f"""
         img="images/case-secure.jpg", alt="株式会社セキュア様 研修風景"
       )}
     </div>
-    <p class="price-note text-center mt-lg">※ 掲載している実績は各社様の許諾を得て公開しています。採用コンサルティング・人事制度構築の数値実績は、今後の支援実績の蓄積とともに順次公開してまいります。</p>
   </div>
 </section>
 

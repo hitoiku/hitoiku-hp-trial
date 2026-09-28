@@ -11,15 +11,15 @@ from content_contact import CONTENT as C_CONTACT
 from content_privacy import CONTENT as C_PRIVACY
 
 page("index.html", "ヒトイク | 採用して終わらせない。人が定着し、育つ組織へ。 - UPDATE HUMAN",
-     "ヒトイクは、採用を入口に定着・育成・組織づくりまで伴走する採用コンサルティング会社です。採用コンサルティング・研修・人事制度構築を通じて企業の成長を支援します。",
+     "ヒトイクは、採用を入口に定着・育成・組織づくりまで伴走する採用伴走支援会社です。採用伴走支援・研修・人事制度構築を通じて企業の成長を支援します。",
      "home", C_INDEX, extra_css="css/story.css")
 
 page("about.html", "ヒトイクとは | ヒトイク",
      "ヒトイクは、人と組織の可能性を育てる会社です。UPDATE HUMANという理念、代表の想い、会社概要をご紹介します。",
      "about", C_ABOUT)
 
-page("recruiting.html", "採用コンサルティング | ヒトイク",
-     "採用代行ではなく、採用の仕組みをつくる。採用戦略設計から実務、面接官研修、定着支援までを一気通貫で支援する採用コンサルティングサービス。",
+page("recruiting.html", "採用伴走支援 | ヒトイク",
+     "採用代行ではなく、採用の仕組みをつくる。採用戦略設計から実務、面接官研修、定着支援までを一気通貫で支援する採用伴走支援サービス。",
      "service", C_RECRUIT)
 
 page("training.html", "研修・人材育成 | ヒトイク",
@@ -39,7 +39,7 @@ page("message.html", "代表紹介 | ヒトイク",
      "message", C_MSG)
 
 page("faq.html", "よくある質問 | ヒトイク",
-     "採用コンサルティング、研修、人事制度構築に関するよくあるご質問をまとめました。",
+     "採用伴走支援、研修、人事制度構築に関するよくあるご質問をまとめました。",
      "faq", C_FAQ)
 
 page("contact.html", "お問い合わせ | ヒトイク",

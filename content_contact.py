@@ -56,7 +56,7 @@ CONTENT = f"""
     <div class="service-link-grid reveal">
       <a href="recruiting.html#recruiting" class="service-link-card">
         <span class="tag">01 / RECRUITING</span>
-        <h4>採用コンサルティング</h4>
+        <h4>採用伴走支援</h4>
         <span class="go">詳しく見る {icon('arrow-right')}</span>
       </a>
       <a href="recruiting.html#training" class="service-link-card">

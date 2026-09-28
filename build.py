@@ -56,7 +56,7 @@ def header(active):
         <li class="has-dropdown">
           <a class="nav-link{cls('service')}" href="recruiting.html">事業内容</a>
           <ul class="dropdown">
-            <li><a href="recruiting.html#recruiting">採用コンサルティング</a></li>
+            <li><a href="recruiting.html#recruiting">採用伴走支援</a></li>
             <li><a href="recruiting.html#training">研修・人材育成</a></li>
             <li><a href="recruiting.html#hr-system">人事制度・組織開発</a></li>
           </ul>
@@ -89,7 +89,7 @@ FOOTER = """<footer class="site-footer">
       <div>
         <h4>事業内容</h4>
         <ul>
-          <li><a href="recruiting.html#recruiting">採用コンサルティング</a></li>
+          <li><a href="recruiting.html#recruiting">採用伴走支援</a></li>
           <li><a href="recruiting.html#training">研修・人材育成</a></li>
           <li><a href="recruiting.html#hr-system">人事制度・組織開発</a></li>
           <li><a href="works.html">支援実績</a></li>

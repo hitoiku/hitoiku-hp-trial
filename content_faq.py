@@ -22,7 +22,7 @@ CONTENT = f"""
   <div class="container">
     <div class="tab-bar reveal">
       <button class="tab-btn active" data-cat="all">すべて</button>
-      <button class="tab-btn" data-cat="recruiting">採用コンサルティング</button>
+      <button class="tab-btn" data-cat="recruiting">採用伴走支援</button>
       <button class="tab-btn" data-cat="training">研修</button>
       <button class="tab-btn" data-cat="hrsystem">人事制度</button>
       <button class="tab-btn" data-cat="general">契約・お支払い</button>

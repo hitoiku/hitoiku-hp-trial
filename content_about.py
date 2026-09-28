@@ -15,11 +15,13 @@ CONTENT = f"""
   <div class="container">
     <div class="mv-box reveal" style="max-width:960px;margin:0 auto;">
       <div class="mv-item">
+        <span class="eyebrow eyebrow-both eyebrow-gray-dash">Vision</span>
         <h3>UPDATE HUMAN</h3>
         <p>人は本来、成長し、変化し続ける存在。私たちは、人が本来持っている可能性が自然に更新され続ける環境と仕組みをつくります。</p>
       </div>
       <div class="mv-divider"></div>
       <div class="mv-item" id="vision">
+        <span class="eyebrow eyebrow-both eyebrow-gray-dash">Mission</span>
         <h3>人の可能性が、動き出す瞬間を。</h3>
         <p>気づき、納得し、やってみようと思えた瞬間。その積み重ねの先に、可能性は自然と動き出すと信じています。</p>
       </div>
@@ -35,7 +37,7 @@ CONTENT = f"""
     <div class="profile-hero reveal" style="margin-bottom:96px;">
       <div>
         <div class="profile-photo"><img src="https://www.genspark.ai/api/files/s/OuQLjzyT" alt="満仲 佑哉" onerror="this.style.display='none';this.parentElement.textContent='満仲';"></div>
-        <p class="credential-line">現場歴18年 ／ CHRO ／ 公認心理師 ／ 社会福祉士</p>
+        <p class="credential-line">公認心理師 ／ 社会福祉士</p>
       </div>
       <div>
         <h3 style="font-size:24px;">満仲 佑哉 <span style="font-size:14px;color:var(--ink-faint);font-weight:500;">Yuya Mitsunaka</span></h3>
@@ -88,21 +90,11 @@ CONTENT = f"""
           <tr><th style="width:180px;">会社名</th><td>株式会社Hitoiku</td></tr>
           <tr><th>設立</th><td>2024年1月10日（ヒトの日）</td></tr>
           <tr><th>資本金</th><td>3,000,000円</td></tr>
-          <tr><th>CEO</th><td>満仲 佑哉</td></tr>
+          <tr><th>代表取締役</th><td>代表取締役CEO 満仲佑哉</td></tr>
           <tr><th>メールアドレス</th><td><a href="mailto:hitoiku0110@gmail.com">hitoiku0110@gmail.com</a></td></tr>
           <tr><th>所在地</th><td>〒450-0002<br>愛知県名古屋市中村区名駅4丁目24番5号<br>第2森ビル401</td></tr>
         </tbody>
       </table>
-    </div>
-  </div>
-</section>
-
-<section class="page-hero">
-  <div class="container">
-    <h1>私たちについて</h1>
-    <div class="about-subnav">
-      <a href="#mission" class="about-subnav-item active" data-panel="mission">経営理念<span class="subnav-arrow">{icon('arrow-down')}</span></a>
-      <a href="#company" class="about-subnav-item" data-panel="company">会社概要<span class="subnav-arrow">{icon('arrow-right')}</span></a>
     </div>
   </div>
 </section>
