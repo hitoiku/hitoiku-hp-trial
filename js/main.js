@@ -3,9 +3,27 @@ document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.main-nav');
   if (toggle && nav) {
+    var closeNav = function () {
+      toggle.classList.remove('open');
+      nav.classList.remove('is-visible');
+      document.body.classList.remove('nav-open');
+      var onEnd = function (e) {
+        if (e.target === nav && e.propertyName === 'transform') {
+          nav.classList.remove('open');
+          nav.removeEventListener('transitionend', onEnd);
+        }
+      };
+      nav.addEventListener('transitionend', onEnd);
+    };
+    var openNav = function () {
+      toggle.classList.add('open');
+      nav.classList.add('open');
+      document.body.classList.add('nav-open');
+      void nav.offsetWidth; // force reflow so the transform transition still animates in
+      nav.classList.add('is-visible');
+    };
     toggle.addEventListener('click', function () {
-      toggle.classList.toggle('open');
-      nav.classList.toggle('open');
+      if (nav.classList.contains('is-visible')) { closeNav(); } else { openNav(); }
     });
   }
 
@@ -23,8 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.main-nav .dropdown a, .main-nav > ul > li > a:not(.has-dropdown > a)').forEach(function (link) {
     link.addEventListener('click', function () {
       if (window.innerWidth <= 980) {
-        toggle.classList.remove('open');
-        nav.classList.remove('open');
+        closeNav();
       }
     });
   });
@@ -141,12 +158,14 @@ document.addEventListener('DOMContentLoaded', function () {
   if (aboutSubnavTabs.length) {
     var missionSection = document.getElementById('mission');
     var companySection = document.getElementById('company');
+    var valuesSection = document.getElementById('about-values');
     var arrowDown = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>';
     var arrowRight = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
     var activateAboutTab = function (target, scroll) {
       var tab = Array.prototype.filter.call(aboutSubnavTabs, function (t) { return t.dataset.panel === target; })[0];
       if (!tab) return;
       if (missionSection) missionSection.hidden = target === 'company';
+      if (valuesSection) valuesSection.hidden = target === 'company';
       if (companySection) companySection.hidden = target !== 'company';
       aboutSubnavTabs.forEach(function (t) {
         var isActive = t === tab;
