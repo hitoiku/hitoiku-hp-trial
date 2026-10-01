@@ -34,7 +34,7 @@ CONTENT = f"""
       <div class="service-card reveal">
         <div class="icon">{icon('scale')}</div>
         <h3>評価者研修</h3>
-        <p>評価基準のすり合わせと、フィードバックの質を高めるトレーニング。公平で納得感のある評価運用を実現します。</p>
+        <p>評価基準のすり合わせと、<br class="mobile-only">フィードバックの質を高める<br class="mobile-only">トレーニング。公平で納得感のある評価運用を実現します。</p>
       </div>
       <div class="service-card reveal">
         <div class="icon">{icon('chat')}</div>

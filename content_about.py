@@ -17,7 +17,7 @@ CONTENT = f"""
       <div class="mv-item">
         <span class="eyebrow eyebrow-both eyebrow-gray-dash">Mission</span>
         <h3 style="font-size:clamp(50px, 7vw, 84px);">UPDATE HUMAN</h3>
-        <p>人は本来、成長し、変化し続ける存在。私たちは、人が本来持っている可能性が自然に<br class="mobile-only">更新され続ける環境と仕組みをつくります。</p>
+        <p>人は本来、成長し、変化し続ける存在。私たちは、人が本来持っている可能性が自然に<br class="mobile-only">更新され続ける環境と<br>仕組みをつくります。</p>
       </div>
       <div class="mv-divider"></div>
       <div class="mv-item" id="vision">

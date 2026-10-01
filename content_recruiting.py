@@ -103,7 +103,7 @@ CONTENT = f"""
     <div class="step-flow">
       <div class="step-flow-item reveal"><div class="dot-line"><span class="dot"></span><span class="line"></span></div><h4>ヒアリング・現状分析</h4><p>採用課題と組織の状況を丁寧に、ヒアリングします。</p></div>
       <div class="step-flow-item reveal"><div class="dot-line"><span class="dot"></span><span class="line"></span></div><h4>採用戦略の設計</h4><p>要件・ペルソナ・チャネル・訴求を組み立てます。</p></div>
-      <div class="step-flow-item reveal"><div class="dot-line"><span class="dot"></span><span class="line"></span></div><h4>体制構築・実務伴走</h4><p>採用体制の構築と、実務・面接官トレーニングを並行して実施します。</p></div>
+      <div class="step-flow-item reveal"><div class="dot-line"><span class="dot"></span><span class="line"></span></div><h4>体制構築・実務伴走</h4><p>採用体制の構築と、実務・面接官トレーニングを並行して<br>実施します。</p></div>
       <div class="step-flow-item reveal"><div class="dot-line"><span class="dot"></span><span class="line"></span></div><h4>運用・振り返り</h4><p>採用状況を確認し、継続的に仕組みを改善します。</p></div>
     </div>
   </div>
@@ -124,7 +124,7 @@ CONTENT = f"""
     <img src="images/service-training-2.webp" alt="研修・人材育成" loading="lazy" class="reveal" style="width:420px;height:auto;border-radius:0;box-shadow:none;flex-shrink:0;">
     <div class="reveal" style="flex:1; min-width:280px;">
       <p style="font-size:22px; font-weight:700; color:var(--ink); margin-bottom:14px;">学びを、行動に変える。</p>
-      <p style="font-size:15px; color:var(--ink); line-height:2;">Hitoikuの研修・人材育成は、企業や現場の課題に合わせた研修設計から、超参加型ワーク、実践、振り返りまでを一貫して支援します。一方的に「教える」のではなく、自ら考え、対話し、行動する研修を実施。受講者の反応や理解度、その場で生まれる対話に合わせて内容を柔軟に組み替えるライブ形式で、一人ひとりの学びを深め、現場での行動変容と人材の成長につなげます。</p>
+      <p style="font-size:15px; color:var(--ink); line-height:2;">Hitoikuの研修・人材育成は、企業や現場の課題に合わせた研修設計から、超参加型ワーク、実践、<br>振り返りまでを一貫して支援します。一方的に「教える」のではなく、自ら考え、対話し、行動する研修を実施。<br>受講者の反応や理解度、その場で生まれる対話に合わせて内容を柔軟に組み替えるライブ形式で、<br>一人ひとりの学びを深め、現場での行動変容と人材の成長につなげます。</p>
     </div>
   </div>
 </section>
