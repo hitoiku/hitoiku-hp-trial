@@ -6,7 +6,7 @@ CONTENT = f"""
 <section class="page-hero">
   <div class="container">
     <h1>お問い合わせ</h1>
-    <p class="lead">採用・研修・人事制度など、どんな段階のお悩みでもお気軽にご相談ください。初回のご相談は無料です。</p>
+    <p class="lead">採用・研修・人事制度など、どんな段階のお悩みでもお気軽にご相談ください。</p>
   </div>
 </section>
 
@@ -36,10 +36,6 @@ CONTENT = f"""
           <div class="ico">{icon('map')}</div>
           <div><div class="lbl">拠点</div><div class="val">〒450-0002<br>愛知県名古屋市中村区名駅4丁目24番5号<br>第2森ビル401<br><span style="font-weight:500;font-size:13px;color:var(--ink-faint);">（全国オンライン対応可）</span></div></div>
         </div>
-        <div class="contact-method">
-          <div class="ico">{icon('clock')}</div>
-          <div><div class="lbl">対応時間</div><div class="val">平日 9:00〜18:00</div></div>
-        </div>
         <p style="margin-top:20px;font-size:13.5px;color:var(--ink-faint);">お急ぎの場合は、メールにて直接ご連絡いただいても構いません。<br>内容を確認の上、担当より折り返しご連絡いたします。</p>
       </div>
     </div>
@@ -49,23 +45,19 @@ CONTENT = f"""
 <section class="pain-band">
   <div class="container">
     <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
-      <span class="eyebrow">Before You Contact</span>
       <h2>分野別のご相談窓口</h2>
       <p>詳しい支援内容は、それぞれの事業内容ページでご紹介しています。</p>
     </div>
     <div class="service-link-grid reveal">
       <a href="recruiting.html#recruiting" class="service-link-card">
-        <span class="tag">01 / RECRUITING</span>
         <h4>採用伴走支援</h4>
         <span class="go">詳しく見る {icon('arrow-right')}</span>
       </a>
       <a href="recruiting.html#training" class="service-link-card">
-        <span class="tag">02 / TRAINING</span>
         <h4>研修・人材育成</h4>
         <span class="go">詳しく見る {icon('arrow-right')}</span>
       </a>
       <a href="recruiting.html#hr-system" class="service-link-card">
-        <span class="tag">03 / HR SYSTEM</span>
         <h4>人事制度・組織開発</h4>
         <span class="go">詳しく見る {icon('arrow-right')}</span>
       </a>

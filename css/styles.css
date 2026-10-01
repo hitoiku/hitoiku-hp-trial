@@ -1013,7 +1013,7 @@ body.nav-open{ overflow:hidden; }
    ============================================================ */
 .about-teaser{
   position:relative; overflow:hidden;
-  min-height: 62vh; display:flex; align-items:center;
+  min-height: 72vh; display:flex; align-items:center;
   background: var(--bg);
 }
 .about-teaser-shapes{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
@@ -1043,7 +1043,7 @@ body.nav-open{ overflow:hidden; }
 }
 .about-teaser-inner{ position:relative; z-index:1; max-width:860px; min-width:0; }
 .about-teaser-statement{
-  font-size: clamp(24px, 3.2vw, 38px); line-height:1.7; font-weight:700;
+  font-size: clamp(20px, 2.8vw, 32px); line-height:1.7; font-weight:700;
   color: var(--ink); margin: 0 0 48px;
 }
 .about-teaser-statement .teaser-break-sm{ display:none; }
