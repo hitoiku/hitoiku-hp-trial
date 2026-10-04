@@ -66,7 +66,7 @@ CONTENT = f"""
     <p class="about-teaser-statement">私たちは、人が変わるきっかけをつくり、<br>誰もが可能性をひらける社会をつくります。</p>
     <a href="about.html" class="about-teaser-link">
       <span class="about-teaser-circle">{icon('arrow-right')}</span>
-      <span>Hitoikuをもっと知る</span>
+      <span>私たちをもっと知る</span>
     </a>
   </div>
 </section>
@@ -108,7 +108,7 @@ CONTENT = f"""
   <div class="container">
     <div class="company-deck reveal" style="transition: opacity 3s ease, transform 3s ease;">
       <div class="company-deck-text">
-        <h2><span class="nowrap">Hitoikuを、</span><br><span class="nowrap">もっと知る。</span></h2>
+        <h2><span class="nowrap">私たちを</span><br><span class="nowrap">もっと知る。</span></h2>
       </div>
       <a href="recruiting.html" class="company-deck-media">
         <img src="images/company-deck.jpg" alt="Hitoiku 会社紹介" loading="lazy">

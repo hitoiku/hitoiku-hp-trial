@@ -17,6 +17,7 @@ CONTENT = f"""
         <h3>Contact</h3>
         <p style="font-size:14px;">下記フォームより、ご都合の良い日時とお悩みの概要をお送りください。1〜2営業日以内に担当よりご連絡いたします。</p>
         <a href="{FORM_URL}" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">フォームを開く {icon('arrow-right')}</a>
+        <p style="margin:14px 0 0;font-size:12.5px;line-height:1.8;color:var(--ink-soft);">個人情報の取扱いについては、<a href="privacy.html" style="color:var(--brand);text-decoration:underline;text-underline-offset:3px;">プライバシーポリシー</a>をご確認ください。</p>
 
         <div class="flow-mini">
           <div class="flow-mini-item"><div class="n">1</div><p>フォームより、貴社の課題・ご希望内容をご入力ください。</p></div>

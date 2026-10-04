@@ -98,21 +98,21 @@ CONTENT = f"""
         <p style="font-weight:700;color:var(--ink);">株式会社Hitoiku 代表取締役CEO ／ 株式会社ナーシング 取締役 CHRO</p>
         <p>「可能性に限界をつくらない。」現場実務18年とCHROとしての経営視点を掛け合わせ、<br>人と組織の可能性が動き出す仕組みづくりに取り組んでいます。</p>
         <div class="message-full">
-          <p>Hitoikuのウェブサイトをご覧いただき、誠にありがとうございます。CEOの満仲佑哉でございます。私たちヒトイクは2024年の設立以来、「UPDATE HUMAN」という理念のもと、企業の人事支援に携わってまいりました。</p>
+          <p>私たちのウェブサイトをご覧いただき、誠にありがとうございます。CEOの満仲佑哉でございます。私たちヒトイクは2024年の創業以来、「UPDATE HUMAN」という理念のもと、企業の人事支援に携わってまいりました。</p>
           <div class="quote-block">
             <p>可能性に限界をつくらない。</p>
           </div>
           <p>高校卒業後、技能職として働き始めた頃の私は、本気で「いつか社長になる」と信じていました。けれど現実の中では、年齢、学歴、職種、環境など、本人の意思や努力だけでは越えにくい壁が、確かに存在すると感じる瞬間がありました。</p>
-          <p>そのとき私は強い悔しさを覚えると同時に、「このままで終わりたくない」「自分の人生も、誰かの可能性も、最初から決められていいはずがない」と強く思いました。この原体験がHitoikuの原点です。</p>
+          <p>そのとき私は強い悔しさを覚えると同時に、「このままで終わりたくない」「自分の人生も、誰かの可能性も、最初から決められていいはずがない」と強く思いました。この原体験が私たちヒトイクの原点です。</p>
           <div class="quote-block">
             <p>数字の奥にいる、一人に向き合う。</p>
           </div>
-          <p>企業にとっては「1名の離職」「1つの課題」に見えることでも、その一人には一人分の人生があり、経験があり、言葉にならない葛藤や想いがあります。私たちは、そこに向き合いたいと考えています。AIが進化する時代だからこそ、私たちはますます人間力や生き抜く力が問われる時代に入っていると考えています。AIを活用しながらも、最後は人にしかできない対話、伴走、理解、そして背中を押す支援に価値を置いています。</p>
+          <p>企業にとっては「1名の離職」「1つの課題」に見えることでも、その一人には一人分の人生があり、経験があり、言葉にならない葛藤や想いがあります。私たちは、そこに向き合いたいと考えています。AIが進化する時代だからこそ、私たちはますます人間力や生き抜く力が問われる時代に<br>入っていると考えています。AIを活用しながらも、最後は人にしかできない対話、伴走、理解、そして背中を押す支援に価値を置いています。</p>
           <div class="quote-block">
             <p>人の可能性が、動き出す社会へ。</p>
           </div>
           <p>私たちは、自然と成長できる構造を体験・制度・人事DXの力でつくり、学びと成長が日常の中に組み込まれていく状態を目指します。それが、<strong>UPDATE HUMAN</strong>。人の可能性を、思想で終わらせず、学びや仕組みで更新することです。</p>
-          <p style="margin-top:30px;text-align:right;">2024年　株式会社Hitoiku 代表取締役CEO　満仲佑哉</p>
+          <p style="margin-top:30px;text-align:right;">2026年　株式会社Hitoiku 代表取締役CEO　満仲佑哉</p>
         </div>
       </div>
     </div>
@@ -126,8 +126,8 @@ CONTENT = f"""
         <div class="timeline-item"><div class="yr">2009年</div><p>株式会社アイシンにて、指導者・管理監督者としてチームを牽引。</p></div>
         <div class="timeline-item"><div class="yr">2016年</div><p>海外拠点の自立化支援を担当。帰国後は働きながら大学で心理学を学ぶ。</p></div>
         <div class="timeline-item message-full" hidden><div class="yr">2023年</div><p>人事部 企画グループへ異動し、全社の育成・組織づくりに関わる企画を推進。</p></div>
-        <div class="timeline-item message-full" hidden><div class="yr">2024年</div><p>"ヒトの育成をする会社 Hitoiku" を設立。株式会社ナーシングの取締役CHROにも就任。</p></div>
-        <div class="timeline-item message-full" hidden><div class="yr">2026年〜</div><p>経営大学院（MBA）へ入学。</p></div>
+        <div class="timeline-item message-full" hidden><div class="yr">2024年</div><p>1月10日（ヒトの日）にHitoikuを創業し、個人事業として人事・採用・組織開発支援を開始。</p></div>
+        <div class="timeline-item message-full" hidden><div class="yr">2026年〜</div><p>株式会社Hitoikuを設立。<br>株式会社ナーシング 取締役CHROに就任。<br>経営大学院（MBA）に入学。</p></div>
       </div>
       <button type="button" class="more message-toggle" aria-expanded="false">
         <span class="message-toggle-label">経歴をすべて見る</span>
@@ -142,7 +142,7 @@ CONTENT = f"""
       <table class="price-table">
         <tbody>
           <tr><th style="width:180px;">会社名</th><td>株式会社Hitoiku</td></tr>
-          <tr><th>設立</th><td>2024年1月10日（ヒトの日）</td></tr>
+          <tr><th>設立</th><td>2026年9月14日</td></tr>
           <tr><th>資本金</th><td>3,000,000円</td></tr>
           <tr><th>代表者</th><td>代表取締役CEO  満仲 佑哉</td></tr>
           <tr><th>メールアドレス</th><td><a href="mailto:hitoiku0110@gmail.com">hitoiku0110@gmail.com</a></td></tr>
