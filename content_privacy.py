@@ -37,7 +37,7 @@ CONTENT = """
       </table>
     </div>
 
-    <p style="margin-top:40px;color:var(--ink-faint);font-size:13px;">制定日：2026年9月14日</p>
+    <p style="margin-top:40px;color:var(--ink-faint);font-size:13px;">制定日：2024年1月10日</p>
   </div>
 </section>
 """

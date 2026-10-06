@@ -142,7 +142,7 @@ CONTENT = f"""
       <table class="price-table">
         <tbody>
           <tr><th style="width:180px;">会社名</th><td>株式会社Hitoiku</td></tr>
-          <tr><th>設立</th><td>2026年9月14日</td></tr>
+          <tr><th>創業</th><td>2024年1月10日（ヒトの日）</td></tr>
           <tr><th>資本金</th><td>3,000,000円</td></tr>
           <tr><th>代表者</th><td>代表取締役CEO  満仲 佑哉</td></tr>
           <tr><th>メールアドレス</th><td><a href="mailto:hitoiku0110@gmail.com">hitoiku0110@gmail.com</a></td></tr>

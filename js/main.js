@@ -217,3 +217,67 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// Phrase-aware line breaking for Japanese on tablet / phone widths.
+// word-break:keep-all stops mid-word splits but makes long punctuation-less
+// runs unbreakable, so the overflow fallback can strand a lone 。 on its own
+// line. BudouX (Google) splits text into natural phrases; we add zero-width
+// break opportunities between them so wrapping happens at phrase boundaries.
+// Applied at <=900px only (desktop wrapping is untouched) and silently
+// skipped if the library can't load -- the CSS-only behaviour remains.
+(function () {
+  var mq = window.matchMedia('(max-width: 900px)');
+  var originals = new Map();
+  var parser = null;
+  var loading = false;
+  var SKIP = 'script,style,noscript,textarea,input,select,svg,.intro-splash,[data-no-phrase]';
+
+  function textNodes() {
+    var list = [];
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) {
+        if (!/[぀-ヿ一-鿿]/.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+        var p = n.parentElement;
+        if (!p || p.closest(SKIP)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    while (walker.nextNode()) list.push(walker.currentNode);
+    return list;
+  }
+
+  function apply() {
+    if (!parser) return;
+    textNodes().forEach(function (n) {
+      if (originals.has(n)) return;
+      var text = n.nodeValue;
+      var parts = parser.parse(text);
+      if (parts.length < 2) return;
+      originals.set(n, text);
+      n.nodeValue = parts.join('​');
+    });
+  }
+
+  function revert() {
+    originals.forEach(function (text, n) { if (n.parentNode) n.nodeValue = text; });
+    originals.clear();
+  }
+
+  function sync() {
+    if (!mq.matches) { revert(); return; }
+    if (parser) { apply(); return; }
+    if (loading) return;
+    loading = true;
+    import('https://cdn.jsdelivr.net/npm/budoux@0.6.4/module/index.js').then(function (m) {
+      parser = m.loadDefaultJapaneseParser();
+      if (mq.matches) apply();
+    }).catch(function () { /* CSS fallback stays in effect */ });
+  }
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(sync);
+  } else {
+    window.addEventListener('load', sync);
+  }
+  if (mq.addEventListener) mq.addEventListener('change', sync); else mq.addListener(sync);
+})();
