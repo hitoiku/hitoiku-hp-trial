@@ -1271,3 +1271,29 @@ body.nav-open{ overflow:hidden; }
 @media (max-width: 720px){
   .lx-mode .static-hero-text h1{ letter-spacing:.08em; }
 }
+
+/* ============================================================
+   Phone/tablet line-break alignment with the desktop design.
+   Desktop copy is broken at deliberate points (<br>). On narrow
+   screens each of those lines may still need to wrap, so:
+   - headings and any block with a deliberate <br> (.has-br, tagged by
+     js/main.js) balance their lines instead of leaving a short orphan
+   - the statement under the hero is sized so each desktop line fits
+     on one line, matching the PC two-line layout
+   Desktop (>767px) is untouched.
+   ============================================================ */
+@media (max-width: 767px){
+  h1, h2, h3, h4, .has-br{ text-wrap: balance; }
+  .about-teaser-statement{ font-size: min(4.3vw, 32px); }
+}
+@media (max-width: 560px){
+  .values-desc{ font-size:15px; }
+}
+
+/* Very small phones (<=340px): keep single-line headings from wrapping a lone character. */
+@media (max-width: 340px){
+  .page-hero h1{ font-size:24px; }
+  .hero-v2-title{ font-size:30px; }
+  .service-list-body h3{ font-size:24px; }
+  .mv-item h3{ font-size:30px; }
+}

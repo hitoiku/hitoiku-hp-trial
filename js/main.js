@@ -218,6 +218,14 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// Tag blocks that contain a deliberate (desktop) <br> so narrow-screen CSS can
+// balance the wrapped lines of each segment instead of leaving short orphans.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('p,li,td,h1,h2,h3,h4').forEach(function (el) {
+    if (el.querySelector('br:not(.mobile-only)')) el.classList.add('has-br');
+  });
+});
+
 // Phrase-aware line breaking for Japanese on tablet / phone widths.
 // word-break:keep-all stops mid-word splits but makes long punctuation-less
 // runs unbreakable, so the overflow fallback can strand a lone 。 on its own
@@ -246,15 +254,30 @@ document.addEventListener('DOMContentLoaded', function () {
     return list;
   }
 
+  // Clause-first wrapping, like the desktop layout: text is kept whole between
+  // 、/。 and only a clause too wide for its line gets phrase-level breaks.
+  function blockWidth(el) {
+    while (el && getComputedStyle(el).display === 'inline') el = el.parentElement;
+    if (!el) return 0;
+    var cs = getComputedStyle(el);
+    return el.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+  }
+
   function apply() {
     if (!parser) return;
     textNodes().forEach(function (n) {
       if (originals.has(n)) return;
       var text = n.nodeValue;
-      var parts = parser.parse(text);
-      if (parts.length < 2) return;
+      var fs = parseFloat(getComputedStyle(n.parentElement).fontSize) || 16;
+      var width = blockWidth(n.parentElement);
+      var clauses = text.match(/[^、。，．！？]+[、。，．！？」』）]*|[、。，．！？」』）]+/g) || [text];
+      var out = clauses.map(function (c) {
+        var parts = c.length * fs <= width ? [c] : parser.parse(c);
+        return parts.join('​');
+      }).join('');
+      if (out === text) return;
       originals.set(n, text);
-      n.nodeValue = parts.join('​');
+      n.nodeValue = out;
     });
   }
 
@@ -280,4 +303,13 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('load', sync);
   }
   if (mq.addEventListener) mq.addEventListener('change', sync); else mq.addListener(sync);
+  var resizeTimer = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      if (!mq.matches || !parser) return;
+      revert();
+      apply();
+    }, 200);
+  });
 })();
