@@ -180,6 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
         void section.offsetWidth;
         section.classList.add('about-panel-fade');
       }
+      if (window.__hitoikuRefit) setTimeout(window.__hitoikuRefit, 60);
     };
     aboutSubnavTabs.forEach(function (tab) {
       tab.addEventListener('click', function (e) {
@@ -214,6 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
       btn.setAttribute('aria-expanded', String(!expanded));
       fulls.forEach(function (el) { el.hidden = expanded; });
       if (label) label.textContent = expanded ? openLabel : '閉じる';
+      if (window.__hitoikuRefit) setTimeout(window.__hitoikuRefit, 60);
     });
   });
 });
@@ -239,6 +241,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var parser = null;
   var loading = false;
   var SKIP = 'script,style,noscript,textarea,input,select,svg,.intro-splash,[data-no-phrase]';
+  var ZWSP = String.fromCharCode(0x200b);
 
   function textNodes() {
     var list = [];
@@ -270,11 +273,15 @@ document.addEventListener('DOMContentLoaded', function () {
       var text = n.nodeValue;
       var fs = parseFloat(getComputedStyle(n.parentElement).fontSize) || 16;
       var width = blockWidth(n.parentElement);
+      if (width <= 0) return; // hidden (e.g. inactive tab): handled once it's shown
       var clauses = text.match(/[^、。，．！？]+[、。，．！？」』）]*|[、。，．！？」』）]+/g) || [text];
+      // A zero-width space between clauses too: Safari/iOS treats 、。 as
+      // non-breaking under word-break:keep-all, so without an explicit
+      // opportunity there it falls back to splitting words mid-way.
       var out = clauses.map(function (c) {
         var parts = c.length * fs <= width ? [c] : parser.parse(c);
-        return parts.join('​');
-      }).join('');
+        return parts.join(ZWSP);
+      }).join(ZWSP);
       if (out === text) return;
       originals.set(n, text);
       n.nodeValue = out;
@@ -286,14 +293,52 @@ document.addEventListener('DOMContentLoaded', function () {
     originals.clear();
   }
 
+  // Desktop copy is broken at deliberate points (<br>). On a phone, shrink a
+  // block just enough that each of those desktop lines fits on one line, so
+  // the line breaks match the PC layout. Never below a readable floor: a line
+  // that would need to be smaller keeps its size and wraps at clause/phrase
+  // boundaries instead.
+  var fitted = [];
+  function resetFit() {
+    fitted.forEach(function (rec) { rec.el.style.fontSize = rec.orig; });
+    fitted = [];
+  }
+  function fit() {
+    resetFit();
+    if (!mq.matches || window.innerWidth > 767) return;
+    document.querySelectorAll('.has-br, .nowrap-desktop').forEach(function (el) {
+      if (!el.getClientRects().length) return;
+      var avail = blockWidth(el);
+      if (avail <= 0) return;
+      var cs = getComputedStyle(el);
+      var fs = parseFloat(cs.fontSize);
+      var prevWs = el.style.whiteSpace;
+      el.style.whiteSpace = 'nowrap';
+      var needed = el.scrollWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      el.style.whiteSpace = prevWs;
+      if (needed <= avail + 0.5) return;
+      var next = Math.floor(fs * (avail / needed) * 99) / 100;
+      var floor = /^H[1-4]$/.test(el.tagName) ? 18 : 13.5;
+      if (next < floor) return;
+      fitted.push({ el: el, orig: el.style.fontSize });
+      el.style.fontSize = next + 'px';
+    });
+  }
+  window.__hitoikuRefit = function () {
+    if (!mq.matches) return;
+    if (parser) apply();
+    fit();
+  };
+
   function sync() {
-    if (!mq.matches) { revert(); return; }
-    if (parser) { apply(); return; }
+    if (!mq.matches) { revert(); resetFit(); return; }
+    if (parser) { apply(); fit(); return; }
+    fit();
     if (loading) return;
     loading = true;
     import('https://cdn.jsdelivr.net/npm/budoux@0.6.4/module/index.js').then(function (m) {
       parser = m.loadDefaultJapaneseParser();
-      if (mq.matches) apply();
+      if (mq.matches) { apply(); fit(); }
     }).catch(function () { /* CSS fallback stays in effect */ });
   }
 
@@ -307,9 +352,9 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
-      if (!mq.matches || !parser) return;
-      revert();
-      apply();
+      if (!mq.matches) return;
+      if (parser) { revert(); apply(); }
+      fit();
     }, 200);
   });
 })();

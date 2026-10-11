@@ -108,7 +108,7 @@ CONTENT = f"""
   <div class="container">
     <div class="company-deck reveal" style="transition: opacity 3s ease, transform 3s ease;">
       <div class="company-deck-text">
-        <h2><span class="nowrap">私たちを</span><br><span class="nowrap">もっと知る。</span></h2>
+        <h2><span class="nowrap">私たちを</span><br class="desktop-only"><span class="nowrap">もっと知る。</span></h2>
       </div>
       <a href="recruiting.html" class="company-deck-media">
         <img src="images/company-deck.jpg" alt="Hitoiku 会社紹介" loading="lazy">
