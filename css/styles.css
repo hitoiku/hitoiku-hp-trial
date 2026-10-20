@@ -497,6 +497,12 @@ body.nav-open{ overflow:hidden; }
   .service-list-icon{ width:64px; height:64px; border-radius: var(--radius-s); }
   .service-list-icon svg{ width:28px; height:28px; }
   .service-list-arrow{ display:none; }
+  /* Longest title (人事制度・組織開発, 9 chars) must stay on one line: size the
+     title from the space left beside the 64px icon instead of a fixed 28px. */
+  .service-list-body h3{
+    font-size: min(28px, calc((100vw - 2 * var(--container-pad) - 122px) / 9.3));
+    white-space: nowrap;
+  }
 }
 
 /* ============================================================
@@ -1294,7 +1300,6 @@ body.nav-open{ overflow:hidden; }
 @media (max-width: 340px){
   .page-hero h1{ font-size:24px; }
   .hero-v2-title{ font-size:30px; }
-  .service-list-body h3{ font-size:24px; }
   .mv-item h3{ font-size:30px; }
   .company-deck-text h2{ font-size:26px; }
 }
